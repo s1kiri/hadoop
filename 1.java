@@ -23,7 +23,6 @@ public class WordCount extends Configured implements Tool {
   public int run(String[] args) throws Exception {
     Job job = Job.getInstance(getConf(), "wordcount");
     job.setJarByClass(this.getClass());
-    // Use TextInputFormat, the default unless job.setInputFormatClass is used
     FileInputFormat.addInputPath(job, new Path(args[0]));
     FileOutputFormat.setOutputPath(job, new Path(args[1]));
     job.setMapperClass(Map.class);
